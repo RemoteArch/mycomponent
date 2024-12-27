@@ -1,0 +1,601 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mycomponent documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">mycomponent documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  TexfieldComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/texfield/texfield.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-texfield</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./texfield.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./texfield.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#passView" >passView</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#default" >default</a>
+                            </li>
+                            <li>
+                                <a href="#FormName" >FormName</a>
+                            </li>
+                            <li>
+                                <a href="#label" >label</a>
+                            </li>
+                            <li>
+                                <a href="#required" >required</a>
+                            </li>
+                            <li>
+                                <a href="#type" >type</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="default"></a>
+                        <b>default</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/texfield/texfield.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="FormName"></a>
+                        <b>FormName</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/texfield/texfield.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="label"></a>
+                        <b>label</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Test Label&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/texfield/texfield.component.ts:14</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="required"></a>
+                        <b>required</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/texfield/texfield.component.ts:13</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/texfield/texfield.component.ts:15</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passView"></a>
+                    <span class="name">
+                        <span ><b>passView</b></span>
+                        <a href="#passView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/texfield/texfield.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Component, input, Input } from &#x27;@angular/core&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+
+@Component({
+  selector: &#x27;app-texfield&#x27;,
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: &#x27;./texfield.component.html&#x27;,
+  styleUrl: &#x27;./texfield.component.css&#x27;
+})
+export class TexfieldComponent {
+  @Input() required !: boolean ;
+  @Input() label: string &#x3D; &#x27;Test Label&#x27;; // Texte du bouton
+  @Input() type: string &#x3D; &#x27;text&#x27;; // Type de bouton Bootstrap
+  @Input() default: any &#x3D; &#x27;&#x27;; // Type de bouton Bootstrap
+  @Input() FormName: string &#x3D; &#x27;&#x27;;
+  passView &#x3D; false
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;![&#x27;select&#x27; , &#x27;email&#x27; , &#x27;password&#x27; , &#x27;otp&#x27;].includes(type)&quot; class&#x3D;&quot;w-full&quot;&gt;
+    &lt;p class&#x3D;&quot;font-semibold&quot;&gt;{{label}} &lt;span *ngIf&#x3D;&quot;required&quot; class&#x3D;&quot;text-red-500&quot;&gt; *&lt;/span&gt;&lt;/p&gt;
+    &lt;input [type]&#x3D;&quot;type&quot; [name]&#x3D;&quot;FormName&quot; [required]&#x3D;&quot;required&quot;  class&#x3D;&quot;p-1 border focus:outline-none rounded-md border-gray-600 bg-transparent w-full min-w-40&quot; [value]&#x3D;&quot;default&quot;&gt;
+&lt;/div&gt;
+
+&lt;div *ngIf&#x3D;&quot;type &#x3D;&#x3D; &#x27;email&#x27;&quot; class&#x3D;&quot;border rounded-md border-gray-600 w-full min-w-40 p-1 flex items-center space-x-3&quot;&gt;
+    &lt;svg width&#x3D;&quot;24&quot; height&#x3D;&quot;25&quot; viewBox&#x3D;&quot;0 0 24 25&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d&#x3D;&quot;M7 9L9.94202 10.7394C11.6572 11.7535 12.3428 11.7535 14.058 10.7394L17 9&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt;&lt;path d&#x3D;&quot;M2.01577 13.9756C2.08114 17.0411 2.11383 18.5739 3.24496 19.7093C4.37609 20.8448 5.95034 20.8843 9.09884 20.9634C11.0393 21.0122 12.9607 21.0122 14.9012 20.9634C18.0497 20.8843 19.6239 20.8448 20.755 19.7093C21.8862 18.5739 21.9189 17.0411 21.9842 13.9756C22.0053 12.9899 22.0053 12.01 21.9842 11.0244C21.9189 7.9588 21.8862 6.42603 20.755 5.2906C19.6239 4.15517 18.0497 4.11562 14.9012 4.03651C12.9607 3.98775 11.0393 3.98775 9.09882 4.0365C5.95034 4.1156 4.37609 4.15515 3.24496 5.29059C2.11383 6.42602 2.08114 7.95879 2.01577 11.0243C1.99474 12.01 1.99474 12.9899 2.01577 13.9756Z&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt;&lt;/svg&gt;
+    &lt;input [type]&#x3D;&quot;type&quot; [name]&#x3D;&quot;FormName&quot; [required]&#x3D;&quot;required&quot;  class&#x3D;&quot;focus:outline-none bg-transparent flex-grow&quot; [value]&#x3D;&quot;default&quot; placeholder&#x3D;&quot;Email&quot;&gt;
+&lt;/div&gt;
+
+&lt;div *ngIf&#x3D;&quot;type &#x3D;&#x3D; &#x27;otp&#x27;&quot; class&#x3D;&quot;border rounded-md border-gray-600 w-full min-w-40 p-1 flex items-center space-x-3&quot;&gt;
+    &lt;svg width&#x3D;&quot;24&quot; height&#x3D;&quot;25&quot; viewBox&#x3D;&quot;0 0 24 25&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d&#x3D;&quot;M18.6436 4.5C18.4955 4.11742 18.2933 3.79898 18.0175 3.52513C16.9851 2.5 15.3234 2.5 12 2.5C8.67661 2.5 7.01491 2.5 5.98247 3.52513C5.70666 3.79898 5.50453 4.11742 5.3564 4.5M5 18.5C5.08715 19.9194 5.32629 20.8233 5.98247 21.4749C7.01491 22.5 8.67661 22.5 12 22.5C15.3234 22.5 16.9851 22.5 18.0175 21.4749C18.6737 20.8233 18.9128 19.9194 19 18.5&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot; stroke-linecap&#x3D;&quot;round&quot;/&gt;&lt;path d&#x3D;&quot;M6 10.5L8 12.5M8 10.5L6 12.5&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt;&lt;path d&#x3D;&quot;M11 10.5L13 12.5M13 10.5L11 12.5&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt;&lt;path d&#x3D;&quot;M16 10.5L18 12.5M18 10.5L16 12.5&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt;&lt;path d&#x3D;&quot;M17 7.5H7C5.11438 7.5 4.17157 7.5 3.58579 8.08579C3 8.67157 3 9.61438 3 11.5C3 13.3856 3 14.3284 3.58579 14.9142C4.17157 15.5 5.11438 15.5 7 15.5H17C18.8856 15.5 19.8284 15.5 20.4142 14.9142C21 14.3284 21 13.3856 21 11.5C21 9.61438 21 8.67157 20.4142 8.08579C19.8284 7.5 18.8856 7.5 17 7.5Z&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt;&lt;path d&#x3D;&quot;M12 19.5V19.51&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;2&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt;&lt;/svg&gt;
+    &lt;input type&#x3D;&quot;number&quot; [name]&#x3D;&quot;FormName&quot; [required]&#x3D;&quot;required&quot;  class&#x3D;&quot;focus:outline-none bg-transparent flex-grow&quot;  placeholder&#x3D;&quot;code OTP&quot;&gt;
+&lt;/div&gt;
+
+&lt;div *ngIf&#x3D;&quot;type &#x3D;&#x3D; &#x27;password&#x27;&quot; class&#x3D;&quot;border rounded-md border-gray-600 w-full min-w-40 p-1 flex items-center space-x-3&quot;&gt;
+    &lt;svg width&#x3D;&quot;24&quot; height&#x3D;&quot;25&quot; viewBox&#x3D;&quot;0 0 24 25&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt; &lt;path d&#x3D;&quot;M4.26781 19.3447C4.49269 21.015 5.87613 22.3235 7.55966 22.4009C8.97627 22.466 10.4153 22.5 12 22.5C13.5847 22.5 15.0237 22.466 16.4403 22.4009C18.1239 22.3235 19.5073 21.015 19.7322 19.3447C19.879 18.2547 20 17.1376 20 16C20 14.8624 19.879 13.7453 19.7322 12.6553C19.5073 10.985 18.1239 9.67649 16.4403 9.59909C15.0237 9.53397 13.5847 9.5 12 9.5C10.4153 9.5 8.97627 9.53397 7.55966 9.59909C5.87613 9.67649 4.49269 10.985 4.26781 12.6553C4.12105 13.7453 4 14.8624 4 16C4 17.1376 4.12105 18.2547 4.26781 19.3447Z&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot;/&gt; &lt;path d&#x3D;&quot;M7.5 9.5V7C7.5 4.51472 9.51472 2.5 12 2.5C14.4853 2.5 16.5 4.51472 16.5 7V9.5&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt; &lt;path d&#x3D;&quot;M16 15.99V16&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;2&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt; &lt;path d&#x3D;&quot;M12 15.99V16&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;2&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt; &lt;path d&#x3D;&quot;M8 15.99V16&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;2&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt; &lt;/svg&gt;
+    &lt;input [type]&#x3D;&quot;passView ? &#x27;text&#x27; : &#x27;password&#x27;&quot; [name]&#x3D;&quot;FormName&quot; [required]&#x3D;&quot;required&quot;  class&#x3D;&quot;focus:outline-none bg-transparent flex-grow&quot; placeholder&#x3D;&quot;password&quot;&gt;
+    &lt;svg *ngIf&#x3D;&quot;passView&quot; (click)&#x3D;&quot;passView &#x3D; !passView&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; width&#x3D;&quot;24&quot; height&#x3D;&quot;25&quot;  viewBox&#x3D;&quot;0 0 16 16&quot;&gt;&lt;path fill&#x3D;&quot;currentColor&quot; d&#x3D;&quot;M8 11c-1.65 0-3-1.35-3-3s1.35-3 3-3s3 1.35 3 3s-1.35 3-3 3m0-5c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2&quot;/&gt;&lt;path fill&#x3D;&quot;currentColor&quot; d&#x3D;&quot;M8 13c-3.19 0-5.99-1.94-6.97-4.84a.44.44 0 0 1 0-.32C2.01 4.95 4.82 3 8 3s5.99 1.94 6.97 4.84c.04.1.04.22 0 .32C13.99 11.05 11.18 13 8 13M2.03 8c.89 2.4 3.27 4 5.97 4s5.07-1.6 5.97-4C13.08 5.6 10.7 4 8 4S2.93 5.6 2.03 8&quot;/&gt;&lt;path fill&#x3D;&quot;currentColor&quot; d&#x3D;&quot;M14 14.5a.47.47 0 0 1-.35-.15l-12-12c-.2-.2-.2-.51 0-.71s.51-.2.71 0l11.99 12.01c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z&quot;/&gt;&lt;/svg&gt;
+    &lt;svg *ngIf&#x3D;&quot;!passView&quot; (click)&#x3D;&quot;passView &#x3D; !passView&quot; width&#x3D;&quot;24&quot; height&#x3D;&quot;25&quot; viewBox&#x3D;&quot;0 0 24 25&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d&#x3D;&quot;M21.544 11.545C21.848 11.9713 22 12.1845 22 12.5C22 12.8155 21.848 13.0287 21.544 13.455C20.1779 15.3706 16.6892 19.5 12 19.5C7.31078 19.5 3.8221 15.3706 2.45604 13.455C2.15201 13.0287 2 12.8155 2 12.5C2 12.1845 2.15201 11.9713 2.45604 11.545C3.8221 9.62944 7.31078 5.5 12 5.5C16.6892 5.5 20.1779 9.62944 21.544 11.545Z&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot;/&gt;&lt;path d&#x3D;&quot;M15 12.5C15 10.8431 13.6569 9.5 12 9.5C10.3431 9.5 9 10.8431 9 12.5C9 14.1569 10.3431 15.5 12 15.5C13.6569 15.5 15 14.1569 15 12.5Z&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1.5&quot;/&gt;&lt;/svg&gt;
+&lt;/div&gt;
+
+&lt;div *ngIf&#x3D;&quot;type &#x3D;&#x3D; &#x27;select&#x27;&quot; class&#x3D;&quot;w-full&quot;&gt;
+    &lt;p class&#x3D;&quot;font-semibold&quot;&gt;{{label}} &lt;span *ngIf&#x3D;&quot;required&quot; class&#x3D;&quot;text-red-500&quot;&gt; *&lt;/span&gt;&lt;/p&gt;
+    &lt;select [name]&#x3D;&quot;FormName&quot; [required]&#x3D;&quot;required&quot;  class&#x3D;&quot;p-1 border focus:outline-none rounded-md border-gray-600 w-full min-w-40&quot;&gt;
+        @for(def of default; track default){
+            &lt;option [value]&#x3D;&quot;def&quot;&gt;{{def}}&lt;/option&gt;
+        }
+    &lt;/select&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="![\'select\' , \'email\' , \'password\' , \'otp\'].includes(type)" class="w-full">    <p class="font-semibold">{{label}} <span *ngIf="required" class="text-red-500"> *</span></p>    <input [type]="type" [name]="FormName" [required]="required"  class="p-1 border focus:outline-none rounded-md border-gray-600 bg-transparent w-full min-w-40" [value]="default"></div><div *ngIf="type == \'email\'" class="border rounded-md border-gray-600 w-full min-w-40 p-1 flex items-center space-x-3">    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 9L9.94202 10.7394C11.6572 11.7535 12.3428 11.7535 14.058 10.7394L17 9" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.01577 13.9756C2.08114 17.0411 2.11383 18.5739 3.24496 19.7093C4.37609 20.8448 5.95034 20.8843 9.09884 20.9634C11.0393 21.0122 12.9607 21.0122 14.9012 20.9634C18.0497 20.8843 19.6239 20.8448 20.755 19.7093C21.8862 18.5739 21.9189 17.0411 21.9842 13.9756C22.0053 12.9899 22.0053 12.01 21.9842 11.0244C21.9189 7.9588 21.8862 6.42603 20.755 5.2906C19.6239 4.15517 18.0497 4.11562 14.9012 4.03651C12.9607 3.98775 11.0393 3.98775 9.09882 4.0365C5.95034 4.1156 4.37609 4.15515 3.24496 5.29059C2.11383 6.42602 2.08114 7.95879 2.01577 11.0243C1.99474 12.01 1.99474 12.9899 2.01577 13.9756Z" stroke="black" stroke-width="1.5" stroke-linejoin="round"/></svg>    <input [type]="type" [name]="FormName" [required]="required"  class="focus:outline-none bg-transparent flex-grow" [value]="default" placeholder="Email"></div><div *ngIf="type == \'otp\'" class="border rounded-md border-gray-600 w-full min-w-40 p-1 flex items-center space-x-3">    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.6436 4.5C18.4955 4.11742 18.2933 3.79898 18.0175 3.52513C16.9851 2.5 15.3234 2.5 12 2.5C8.67661 2.5 7.01491 2.5 5.98247 3.52513C5.70666 3.79898 5.50453 4.11742 5.3564 4.5M5 18.5C5.08715 19.9194 5.32629 20.8233 5.98247 21.4749C7.01491 22.5 8.67661 22.5 12 22.5C15.3234 22.5 16.9851 22.5 18.0175 21.4749C18.6737 20.8233 18.9128 19.9194 19 18.5" stroke="black" stroke-width="1.5" stroke-linecap="round"/><path d="M6 10.5L8 12.5M8 10.5L6 12.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 10.5L13 12.5M13 10.5L11 12.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 10.5L18 12.5M18 10.5L16 12.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 7.5H7C5.11438 7.5 4.17157 7.5 3.58579 8.08579C3 8.67157 3 9.61438 3 11.5C3 13.3856 3 14.3284 3.58579 14.9142C4.17157 15.5 5.11438 15.5 7 15.5H17C18.8856 15.5 19.8284 15.5 20.4142 14.9142C21 14.3284 21 13.3856 21 11.5C21 9.61438 21 8.67157 20.4142 8.08579C19.8284 7.5 18.8856 7.5 17 7.5Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 19.5V19.51" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>    <input type="number" [name]="FormName" [required]="required"  class="focus:outline-none bg-transparent flex-grow"  placeholder="code OTP"></div><div *ngIf="type == \'password\'" class="border rounded-md border-gray-600 w-full min-w-40 p-1 flex items-center space-x-3">    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4.26781 19.3447C4.49269 21.015 5.87613 22.3235 7.55966 22.4009C8.97627 22.466 10.4153 22.5 12 22.5C13.5847 22.5 15.0237 22.466 16.4403 22.4009C18.1239 22.3235 19.5073 21.015 19.7322 19.3447C19.879 18.2547 20 17.1376 20 16C20 14.8624 19.879 13.7453 19.7322 12.6553C19.5073 10.985 18.1239 9.67649 16.4403 9.59909C15.0237 9.53397 13.5847 9.5 12 9.5C10.4153 9.5 8.97627 9.53397 7.55966 9.59909C5.87613 9.67649 4.49269 10.985 4.26781 12.6553C4.12105 13.7453 4 14.8624 4 16C4 17.1376 4.12105 18.2547 4.26781 19.3447Z" stroke="black" stroke-width="1.5"/> <path d="M7.5 9.5V7C7.5 4.51472 9.51472 2.5 12 2.5C14.4853 2.5 16.5 4.51472 16.5 7V9.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M16 15.99V16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 15.99V16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M8 15.99V16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>    <input [type]="passView ? \'text\' : \'password\'" [name]="FormName" [required]="required"  class="focus:outline-none bg-transparent flex-grow" placeholder="password">    <svg *ngIf="passView" (click)="passView = !passView" xmlns="http://www.w3.org/2000/svg" width="24" height="25"  viewBox="0 0 16 16"><path fill="currentColor" d="M8 11c-1.65 0-3-1.35-3-3s1.35-3 3-3s3 1.35 3 3s-1.35 3-3 3m0-5c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2"/><path fill="currentColor" d="M8 13c-3.19 0-5.99-1.94-6.97-4.84a.44.44 0 0 1 0-.32C2.01 4.95 4.82 3 8 3s5.99 1.94 6.97 4.84c.04.1.04.22 0 .32C13.99 11.05 11.18 13 8 13M2.03 8c.89 2.4 3.27 4 5.97 4s5.07-1.6 5.97-4C13.08 5.6 10.7 4 8 4S2.93 5.6 2.03 8"/><path fill="currentColor" d="M14 14.5a.47.47 0 0 1-.35-.15l-12-12c-.2-.2-.2-.51 0-.71s.51-.2.71 0l11.99 12.01c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z"/></svg>    <svg *ngIf="!passView" (click)="passView = !passView" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.544 11.545C21.848 11.9713 22 12.1845 22 12.5C22 12.8155 21.848 13.0287 21.544 13.455C20.1779 15.3706 16.6892 19.5 12 19.5C7.31078 19.5 3.8221 15.3706 2.45604 13.455C2.15201 13.0287 2 12.8155 2 12.5C2 12.1845 2.15201 11.9713 2.45604 11.545C3.8221 9.62944 7.31078 5.5 12 5.5C16.6892 5.5 20.1779 9.62944 21.544 11.545Z" stroke="black" stroke-width="1.5"/><path d="M15 12.5C15 10.8431 13.6569 9.5 12 9.5C10.3431 9.5 9 10.8431 9 12.5C9 14.1569 10.3431 15.5 12 15.5C13.6569 15.5 15 14.1569 15 12.5Z" stroke="black" stroke-width="1.5"/></svg></div><div *ngIf="type == \'select\'" class="w-full">    <p class="font-semibold">{{label}} <span *ngIf="required" class="text-red-500"> *</span></p>    <select [name]="FormName" [required]="required"  class="p-1 border focus:outline-none rounded-md border-gray-600 w-full min-w-40">        @for(def of default; track default){            <option [value]="def">{{def}}</option>        }    </select></div></div>'
+    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'app-alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CharteComponent', 'selector': 'app-charte'},{'name': 'InputComponent', 'selector': 'app-input'},{'name': 'LoardingComponent', 'selector': 'app-loarding'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'ModalItemDeleteComponent', 'selector': 'app-modal-item-delete'},{'name': 'ModalTitleComponent', 'selector': 'app-modal-title'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NewModalComponent', 'selector': 'app-new-modal'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'PaidDriveTableComponent', 'selector': 'app-paid-drive-table'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SimpTableComponent', 'selector': 'app-simp-table'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TexfieldComponent', 'selector': 'app-texfield'},{'name': 'TitleComponent', 'selector': 'app-title'},{'name': 'ToastComponent', 'selector': 'app-toast'},{'name': 'UnavalaibleComponent', 'selector': 'app-unavalaible'},{'name': 'UploadComponent', 'selector': 'app-upload'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TexfieldComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TexfieldComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
