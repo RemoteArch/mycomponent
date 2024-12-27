@@ -1,0 +1,24 @@
+div {
+    display: flex;
+}
+
+/* Dans styles.css */
+.bg-primary {
+    @apply bg-blue-700 hover:bg-blue-600;
+}
+
+.bg-success {
+    @apply bg-green-700 hover:bg-green-600;
+}
+
+.bg-danger {
+    @apply bg-red-700 hover:bg-red-600;
+}
+
+.bg-warning {
+    @apply bg-amber-500 hover:bg-amber-400;
+}
+
+.bg-state {
+    @apply bg-slate-300 hover:bg-slate-500;
+}

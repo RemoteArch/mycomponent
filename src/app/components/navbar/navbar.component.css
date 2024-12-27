@@ -1,0 +1,88 @@
+.navbar {
+    position: fixed;
+    color: #000000;
+    font-weight: bold;
+    padding: 0px 25px;
+    font-size: 20px;
+    background: #FFFFFF;
+    border-bottom: 0.2px solid #E1E1E1;
+    cursor: pointer;
+    width: 100%;
+    height: 70px;
+    transition: all 0.5s ease;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.navbar .logo {
+    font-size: 15px;
+    padding: 0 15px;
+}
+
+.navbar .v2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.navbar .v21 {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    margin: 20px auto;
+    margin-right: 10px;
+    background-color: #E78E01;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.navbar .v23 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.navbar .v24 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.navbar .v25 {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    color: rgba(0, 0, 0, 0.7);
+
+}
+
+.navbar .navlog {
+    display: flex;
+    align-items: center;
+}
+
+.navbar #sidebar-close {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar{
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+    }
+    .navbar .logo {
+        font-size: 10px;
+        padding: 0 15px;
+    }
+  }

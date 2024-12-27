@@ -1,0 +1,64 @@
+<div>
+  <div class="bg-gray-200 rounded-lg p-2 flex items-center">
+    <div class="bg-white px-3 py-2 flex items-center rounded-lg">
+      <svg class="w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 428L339.92 303.9a160.48 160.48 0 0030.72-94.58C370.64 120.37 298.27 48 209.32 48S48 120.37 48 209.32s72.37 161.32 161.32 161.32a160.48 160.48 0 0094.58-30.72L428 464zM209.32 319.69a110.38 110.38 0 11110.37-110.37 110.5 110.5 0 01-110.37 110.37z" /></svg>
+      <input  class="bg-transparent text-sm focus:outline-none" type="text" placeholder="Search here..."  [(ngModel)]="searchText" (input)="filterProducts()"/>
+    </div>
+  </div> 
+
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+        <tr>
+          <th *ngFor="let col of columns" scope="col" class="px-6 py-3">{{col.title}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows"
+          class="bg-white border-b hover:bg-gray-50">
+          <td *ngFor="let col of columns" class="px-6 py-4">
+            <span *ngIf="col.type == 'text'">{{row[col.attr]}}</span>
+            <div *ngIf="col.type == 'action'" class="relative">
+              <svg class="w-6" (click)="row[col.attr].show=!row[col.attr].show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><g fill="none"><path stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"/><path fill="currentColor" fill-rule="evenodd" d="M21.5 14a2.5 2.5 0 1 0 5 0a2.5 2.5 0 0 0-5 0m0 10a2.5 2.5 0 1 0 5 0a2.5 2.5 0 0 0-5 0M24 36.5a2.5 2.5 0 1 1 0-5a2.5 2.5 0 0 1 0 5" clip-rule="evenodd"/></g></svg>
+              <div [class.hidden]="!row[col.attr].show" class="absolute z-10 bg-white border-2 rounded-md p-2">
+                <button *ngFor="let ev of row[col.attr].events" (click)="row[col.attr].callback([ev , row]);row[col.attr].show=!row[col.attr].show" class="p-1">{{ev}}</button>
+              </div>
+            </div>
+            <div *ngIf="col.type == 'profil'" class="flex items-center space-x-1">
+              <img [src]="row[col.attr].image" class="rounded-full w-10 h-10">
+              <div class="flex-grow">
+                <p class="px-1 font-bold">{{row[col.attr].name}}</p>
+                <div class="flex text-primary-500 -space-x-[7px]">
+                  <svg *ngFor="let i of range(row[col.attr].note)" xmlns="http://www.w3.org/2000/svg" class="w-5" viewBox="0 0 24 24"><path fill="currentColor" d="m7.325 18.923l1.24-5.313l-4.123-3.572l5.431-.47L12 4.557l2.127 5.01l5.43.47l-4.123 3.572l1.241 5.313L12 16.102z"/></svg>
+                  <svg *ngFor="let i of range(row[col.attr].note)" xmlns="http://www.w3.org/2000/svg" class="w-5" viewBox="0 0 24 24"><path fill="currentColor" d="m8.85 16.825l3.15-1.9l3.15 1.925l-.825-3.6l2.775-2.4l-3.65-.325l-1.45-3.4l-1.45 3.375l-3.65.325l2.775 2.425zm-1.525 2.098l1.24-5.313l-4.123-3.572l5.431-.47L12 4.557l2.127 5.01l5.43.47l-4.123 3.572l1.241 5.313L12 16.102zM12 12.25"/></svg>
+                </div>
+              </div>
+            </div>
+            <p *ngIf="col.type == 'status'" [ngClass]="['bg-'+row[col.attr].style+'-50' ,'border-'+row[col.attr].style+'-500' , 'text-'+row[col.attr].style+'-500']" class="border rounded-full px-2 py-1 text-center">{{row[col.attr].value}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+    <nav class="flex items-center justify-end  pt-4">
+      <p>
+        <button (click)="previousPage()" [disabled]="currentPage === 1"
+          class="px-3 py-1 bg-gray-300 rounded disabled:bg-gray-200">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none">
+            <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        <span class="text-sm font-normal">Page {{ currentPage }}</span>
+
+        <button (click)="nextPage()" [disabled]="rows.length < itemsPerPage"
+          class="px-3 py-1 bg-gray-300 rounded disabled:bg-gray-200">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none">
+            <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </p>
+    </nav>
+  </div>
+</div>

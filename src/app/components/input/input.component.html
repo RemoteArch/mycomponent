@@ -1,0 +1,31 @@
+<div class="mb-3.5">
+    <div class="">
+      <div class="relative mb-6">
+        <label [for]="id()" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ label() }}</label>
+        @if (icon()) {
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <ng-container [ngComponentOutlet]="icon()" [ngComponentOutletInputs]="{size:20}"></ng-container>
+            </div>
+        }
+        <input [type]="computedType()" [id]="id()" [name]="name()" [placeholder]="placeholder()"
+               [autocomplete]="type()==='password'?'off':'on'" (input)="onInputChange($event)" [formControl]="control()"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 overflow-hidden text-ellipsis whitespace-nowrap"
+               [ngClass]="{'pl-12':icon(), 'border-red-600 focus:border-red-600 focus:ring-red-600 bg-red-50': isControlInvalid()}">
+        @if (type() == 'password') {
+          <button type="button" (click)="togglePassword()"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" [ngClass]="{'text-red-600 bg-red-50/50': isControlInvalid()}">
+            @if (isPasswordVisible()) {
+                <app-open-eye></app-open-eye>
+            } @else {
+                <app-close-eye></app-close-eye>
+            }
+          </button>
+        }
+      </div>
+    </div>
+    @if (isControlInvalid()) {
+      <div class="text-sm text-red-500 mt-0.5">{{ errorMessage }}</div>
+    }
+  
+  </div>
+  

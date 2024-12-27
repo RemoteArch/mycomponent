@@ -1,0 +1,22 @@
+.color{ 
+    color: black;
+}
+
+.dark-success{
+    @apply dark:text-green-400 bg-green-50 text-green-500;
+}
+
+.dark-danger{
+    @apply dark:text-red-400 bg-red-50 text-red-500;
+}
+
+.dark-cancel{
+    @apply dark:text-gray-300 bg-gray-50 text-gray-500;
+}
+
+.dark-warning{
+    @apply dark:text-amber-400 bg-amber-50 text-amber-500;
+}
+.dark-primary{
+    @apply dark:text-blue-400 bg-blue-50 text-blue-500;
+}

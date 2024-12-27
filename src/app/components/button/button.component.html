@@ -1,0 +1,23 @@
+<button  [ngClass]="[btnVariant(),'text-'+textColor()]"
+  class="w-full focus:ring-4 font-medium rounded-lg text-sm py-2.5 me-2 mb-2 disabled:bg-gray-600 focus:outline-none px-10"
+  [disabled]="isDesabled()">
+
+  @if(isLoading()){
+
+    <div class="flex justify-around items-center content-center">
+      <app-loarding [size]="'h-4 w-4'"></app-loarding>
+      <span class="text-sm mx-2">Loarding..</span>  
+    </div>
+
+  }@else {
+    <div class="flex justify-around items-center content-center">
+      <span>
+        {{label()}}
+      </span>
+      <span class="mx-2">
+        <ng-content></ng-content>
+      </span>
+    </div>
+  }
+
+</button>

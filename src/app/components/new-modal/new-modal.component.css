@@ -1,0 +1,10 @@
+.hidden{
+    visibility: hidden;
+    overflow-x: hidden;
+}
+
+.visibile{
+    visibility: visible;
+    overflow-x: visible;
+}
+
