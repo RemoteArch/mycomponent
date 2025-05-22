@@ -15,9 +15,7 @@
           <button type="button" (click)="togglePassword()"
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" [ngClass]="{'text-red-600 bg-red-50/50': isControlInvalid()}">
             @if (isPasswordVisible()) {
-                <app-open-eye></app-open-eye>
             } @else {
-                <app-close-eye></app-close-eye>
             }
           </button>
         }

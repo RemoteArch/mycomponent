@@ -1,13 +1,11 @@
 import { NgClass, NgComponentOutlet } from '@angular/common';
-import { Component, computed, input, output, OutputEmitterRef, signal, Signal, Type } from '@angular/core';
+import { Component, computed, input, signal, Signal, Type } from '@angular/core';
 import { FormControl, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
-import { OpenEyeComponent } from "../../icons/open-eye/open-eye.component";
-import { CloseEyeComponent } from "../../icons/close-eye/close-eye.component";
 
 @Component({ 
   selector: 'app-input',
   standalone: true,
-  imports: [NgClass, NgComponentOutlet, ReactiveFormsModule, OpenEyeComponent, CloseEyeComponent],
+  imports: [NgClass, NgComponentOutlet, ReactiveFormsModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.css'
 })
