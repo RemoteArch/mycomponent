@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for documentation page */
+.component-preview {
+  @apply p-6 bg-white rounded-lg shadow-sm border border-gray-200;
+}
+
+.code-block {
+  @apply bg-gray-800 text-white p-4 rounded-lg overflow-x-auto;
+}
+
+/* Animation for components that need it */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Transitions */
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Documentation specific styles */
+.docs-section {
+  @apply mb-12;
+}
+
+.docs-section-title {
+  @apply text-2xl font-bold mb-4;
+}
+
+.docs-example {
+  @apply mb-6;
+}
+
+/* Component specific overrides */
+.modal-backdrop {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+}
+
+.drawer-backdrop {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .docs-grid {
+    @apply grid-cols-1;
+  }
+}
