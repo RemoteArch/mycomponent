@@ -36,7 +36,7 @@ const CodeExample = ({ code, children }) => {
   const [showCode, setShowCode] = useState(false);
 
   return (
-    <div className="border dark:border-gray-700 rounded-lg divide-y dark:divide-gray-700 rounded-lg overflow-hidden mb-6">
+    <div className="border dark:border-gray-700 divide-y dark:divide-gray-700 rounded-lg overflow-hidden mb-6">
       <div className="p-4 bg-white dark:bg-gray-800">
         {children}
       </div>
